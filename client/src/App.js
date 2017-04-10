@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Clock from './components/clock';
@@ -9,23 +9,25 @@ import Login from './components/login';
 
 export class App extends Component {
 	render() {
-		let logoutButton = this.props.loggedIn ?   <button className="waves-effect waves-light btn right logoutButton"
-						  onClick={() => this.props.logout()}>Logout
-					  </button> : '';
+		let logoutButton = this.props.loggedIn
+						? <button className="waves-effect waves-light btn right logoutButton"
+						  	onClick={() => this.props.logout()}>Logout
+					      </button>
+					  : '';
         return (
-        <div className="">
-			<header className='header'>
-				{logoutButton}
-            	<h1 className="title">PomoGitto</h1>
-			</header>
-			<div className="row">
-				<Clock />
-				{this.props.children}
-			</div>
-			<footer className="footer">
-				<p>Built by <a href="https://github.com/Jean-Luc19">Aaron Gottlieb</a> & <a href="https://github.com/Mousecop">Jacob Askew</a></p>
-			</footer>
-        </div>
+	        <div className="">
+				<header className='header'>
+					{logoutButton}
+	            	<h1 className="title">PomoGitto</h1>
+				</header>
+				<div className="row">
+					<Clock />
+					{this.props.children}
+				</div>
+				<footer className="footer">
+					<p>Built by <a href="https://github.com/Jean-Luc19">Aaron Gottlieb</a> & <a href="https://github.com/Mousecop">Jacob Askew</a></p>
+				</footer>
+	        </div>
         );
 	}
 }

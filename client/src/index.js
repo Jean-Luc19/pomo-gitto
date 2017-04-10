@@ -9,7 +9,8 @@ import * as actions from './actions/action';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Login from './components/login';
 import IssueList from './components/issue-list';
-import TaskMaker from './components/task-maker'
+import TaskMaker from './components/task-maker';
+
 const routes = (
 
         <Router history={hashHistory}>
@@ -23,8 +24,10 @@ const routes = (
 )
 
 ReactDOM.render(
+
   <Provider store={store}>
       {routes}
   </Provider>,
   document.getElementById('root')
+
 );

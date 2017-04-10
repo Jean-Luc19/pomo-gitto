@@ -47,20 +47,20 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
     res.sendFile(index);
 });
 
+// var dbURL = process.env.NODE_ENV == 'production' ? process.env.DB_URL : localhost
+
 let server;
 function runServer(port=3001) {
     return new Promise((resolve, reject) => {
         mongoose.connect("mongodb://aarongo:pass1234@ds137760.mlab.com:37760/pomo-gitto", err => {
 
             if (err) {
-
                 return(err);
             }
             server = app.listen(port, () => {
                 resolve();
             }).on('error', reject);
-        })
-
+        });
     });
 }
 

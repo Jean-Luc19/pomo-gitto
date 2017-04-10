@@ -15,13 +15,11 @@ export class TaskMaker extends React.Component {
             hidden: ''
         }
         this.handleClick = this.handleClick.bind(this);
-
     }
+
     handleClick(text, text2) {
         this.setState({title: text.value, description: text2.value, hidden: 'hidden'})
-
     }
-
 
     render () {
         let taskCard = this.state.title.length > 5 ?
@@ -31,7 +29,7 @@ export class TaskMaker extends React.Component {
                          <p>{this.state.description}</p>
                        <div className="card-action">
                            <button className="waves-effect waves-light btn right"
-                   	   onClick={this.props.toggleTimeRunning}>Start the Clock
+                   	           onClick={this.props.toggleTimeRunning}>Start the Clock
                           </button>
                        </div>
                     </div>
@@ -44,7 +42,7 @@ export class TaskMaker extends React.Component {
                         <input id="input_text" type="text" data-length="15" placeholder="Title" ref={input => {this.textInput = input; }}/>
                     </div>
                     <div className="input-field col s12">
-                         <textarea id="textarea1" className="materialize-textarea" data-length="120" placeholder="Description" ref={el => {this.descInput = el;}}></textarea>
+                        <textarea id="textarea1" className="materialize-textarea" data-length="120" placeholder="Description" ref={el => {this.descInput = el;}}></textarea>
                     </div>
                     <div className="col s6">
                         <button className="waves-effect waves-light btn" onClick={() => this.handleClick(this.textInput, this.descInput)}>Pom This Task</button>
@@ -52,7 +50,6 @@ export class TaskMaker extends React.Component {
                 </div>
             </div>
         )
-
     }
 }
 const mapDispatchToProps = (dispatch) => ({
@@ -62,8 +59,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 	addPommoHistory() {
 		dispatch(actions.pommoHistory())
-	},
-
+	}
 })
 
 export default connect(null, mapDispatchToProps)(TaskMaker);

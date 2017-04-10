@@ -8,17 +8,17 @@ import '../clock.css';
 
 
 export class Clock extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			seconds: 5
 		}
-
 	}
+
 	componentWillUnmount() {
 		this.stopCountdown();
 	}
-
 
 	componentWillReceiveProps(nextProps) {
 		if(nextProps.isTimeRunning && !this.props.isTimeRunning) {
@@ -29,14 +29,13 @@ export class Clock extends React.Component {
   	}
 
 	tick() {
-		if (this.state.seconds <= 0) {
+		if(this.state.seconds <= 0) {
 			this.props.toggleTimeRunning();
 			this.stopCountdown();
 			this.props.addPommoHistory();
 			this.props.clearUserSelected();
-
-
-		} else {
+		}
+		else {
 			this.setState({
 				seconds: this.state.seconds - 1
 			});
@@ -58,12 +57,15 @@ export class Clock extends React.Component {
   onClickHandle () {
 	  this.startCountdown();
   }
+
   render() {
 		let button = this.props.userSelected ? <button className="waves-effect waves-light btn right"
 	   onClick={this.props.toggleTimeRunning}>Start the Clock
    </button> : '';
+
 	  const minutes = Math.floor(this.state.seconds / 60);
 	  const remSeconds = this.state.seconds % 60;
+
 	  return (
 		  <div className="col s12 m5">
 			  <div className="card">
